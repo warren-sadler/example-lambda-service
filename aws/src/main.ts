@@ -15,6 +15,7 @@ export class MyStack extends Stack {
     });
     const handler = new NodejsFunction(this, "handler", {
       entry: path.resolve(__dirname, "../../src/apps/lambdas/tasks.ts"),
+      // handler is omitted because it is the expected export name for lambda
       runtime: Lambda.Runtime.NODEJS_14_X,
     });
     table.grantFullAccess(handler);
